@@ -10,18 +10,6 @@ URL_List = [
 ###         THIS DATA IS FOUND IN 'https://httpbin.org/get'                     ###
 ###         User-Agent needs to be replaced with your data                      ###
 ###################################################################################
-###################################################################################
-###                     'Run on Startup'                                        ###
-###         Create a Notepad++ File with this content                           ###
-###         @echo off                                                           ###
-###         "C:\Users\User\AppData\Local\Programs\Python\Python310\python.exe"  ###
-###         "V:\PyCharmProjects\amazonPriceFetcher\main.py"                     ###
-###         pause                                                               ###
-###                                                                             ###
-###         save the file as a .bat file and add it to your shell:startup       ###
-###         programs        (WIN + R) -> shell:startup                          ###
-###################################################################################
-
 
 # "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
 # "Accept-Encoding": "gzip, deflate, br","Dnt": "1", "Upgrade-Insecure-Requests": "1", "Connection":"close",
@@ -39,8 +27,8 @@ def requestWebsite(URL):
     return websiteOfProduct
 
 
-def parseWebsite(webssiteOfProduct):
-    contentOfWebsite = BeautifulSoup(webssiteOfProduct.content, "html.parser")
+def parseWebsite(websiteOfProduct):
+    contentOfWebsite = BeautifulSoup(websiteOfProduct.content, "html.parser")
     return contentOfWebsite
 
 
@@ -67,5 +55,5 @@ def fetchTitleFromProduct(URL):
 
 
 # Loop through every URL in URL_List
-for product in URL_List:
-    print(f'{fetchTitleFromProduct(product)}: {fetchPriceFromProduct(product)}')
+for productURL in URL_List:
+    print(f'{fetchTitleFromProduct(productURL)}: {fetchPriceFromProduct(productURL)}')
